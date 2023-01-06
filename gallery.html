@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      .w3-quarter img {
+        margin-bottom: -6px;
+        cursor: pointer;
+      }
+      .w3-quarter img:hover {
+        opacity: 0.6;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body class="w3-light-grey">
+    <!-- Sidebar/menu -->
+    <header class="header" id="hd">
+      <div style="flex-direction: row">
+        <a href="#" class="logo">
+          <img src="./image/logo.png" style="width: 80px; height: 80px" />
+        </a>
+        <span
+          style="
+            font-size: 22px;
+            align-self: center;
+            position: absolute;
+            margin-top: 30px;
+          "
+          >AS Nursery Gardern</span
+        >
+      </div>
+
+      <nav class="navbar">
+        <a href="index.html">home</a>
+        <a href="">Gallery</a>
+        <a href="#products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#review">review</a>
+        <a href="#blogs">blogs</a>
+      </nav>
+
+      <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn" style="display: none"></div>
+        <div
+          class="fas fa-shopping-cart"
+          id="cart-btn"
+          style="display: none"
+        ></div>
+        <div class="fas fa-user" id="login-btn" style="display: none"></div>
+      </div>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-animate-opacity"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content" style="max-width: 1600px; margin-top: 83px">
+      <!-- Photo grid -->
+      <div class="w3-row w3-grayscale-min">
+        <div class="w3-quarter">
+          <img
+            src="image/img1.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/img2.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/img3.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+        </div>
+
+        <div class="w3-quarter">
+          <img
+            src="image/img4.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/img5.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/img6.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+        </div>
+
+        <div class="w3-quarter">
+          <img
+            src="image/img7.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/img8.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/seed1.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+        </div>
+
+        <div class="w3-quarter">
+          <img
+            src="image/seed2.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/seed3.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+          <img
+            src="image/seed4.jpg"
+            style="width: 100%"
+            onclick="onClick(this)"
+          />
+          <!-- alt="" -->
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <!-- <div class="w3-center w3-padding-32">
+        <div class="w3-bar">
+          <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+          <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+        </div>
+      </div> -->
+
+      <!-- Modal for full size images on click-->
+      <div
+        id="modal01"
+        class="w3-modal w3-black"
+        style="padding-top: 0"
+        onclick="this.style.display='none'"
+      >
+        <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+        <div
+          class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"
+        >
+          <img id="img01" class="w3-image" />
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <!-- About section -->
+
+      <!-- Contact section -->
+
+      <!-- Footer -->
+      <section class="footer">
+        <div class="box-container">
+          <div class="box">
+            <h3>Address</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
+              saepe.
+            </p>
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <!-- <a href="#" class="fab fa-twitter"></a> -->
+              <a href="#" class="fab fa-instagram"></a>
+            </div>
+          </div>
+
+          <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links">
+              <i class="fas fa-phone"></i> +123-456-7890
+            </a>
+            <a href="#" class="links">
+              <i class="fas fa-phone"></i> +111-222-3333
+            </a>
+            <a href="#" class="links">
+              <i class="fas fa-envelope"></i> shaikhanas@gmail.com
+            </a>
+            <a href="#" class="links">
+              <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104
+            </a>
+          </div>
+        </div>
+
+        <div class="credit">
+          created by <span> designer </span> | all rights reserved
+        </div>
+      </section>
+
+      <!-- End page content -->
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block"
+        document.getElementById("myOverlay").style.display = "block"
+        // document.getElementById("hd").style.display = "none"
+      }
+
+      function w3_close() {
+        document.getElementById("hd").style.display = "block"
+        document.getElementById("mySidebar").style.display = "none"
+        document.getElementById("myOverlay").style.display = "none"
+      }
+
+      // Modal Image Gallery
+      //   function onClick(element) {
+      //     document.getElementById("img01").src = element.src
+      //     document.getElementById("modal01").style.display = "block"
+      //     document.getElementById("modal01").style.paddingTop = "100px"
+      //     var captionText = document.getElementById("caption")
+      //     captionText.innerHTML = element.alt
+      //   }
+    </script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
